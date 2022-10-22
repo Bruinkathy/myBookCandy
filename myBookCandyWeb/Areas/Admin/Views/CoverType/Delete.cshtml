@@ -1,0 +1,19 @@
+﻿@model CoverType
+
+<form method="post" asp-action="DeletePOST">
+    <input asp-for="Id" hidden />
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Delete Cover Type:</h2>
+			<hr />
+		</div>
+		<div class="row mb-4">
+			<div class="col-8">
+				<label asp-for="Name"></label>
+				<input asp-for="Name" disabled class="form-control" />
+			</div>
+		</div>
+		<a class="btn btn-secondary width150" asp-area="Admin" asp-controller="CoverType" asp-action="Index" title="Back"><i class="bi bi-arrow-left-circle i20">&nbsp;</i>Back</a>
+		<button type="submit" class="btn btn-danger width150"><i class="bi bi-x-square i20" title="Delete"></i>&nbsp;Delete</button>
+	</div>
+</form>
