@@ -2,7 +2,7 @@
 using myBookCandy.Models;
 using System.Diagnostics;
 
-namespace myBookCandyWeb.Controllers
+namespace myBookCandyWeb.Areas.Customer.Controllers
 {
     public class HomeController : Controller
     {
