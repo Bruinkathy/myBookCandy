@@ -45,7 +45,6 @@ footer {
 
 .success-message,
 .error-message {
-    position: absolute;
     top: 60px;
     width: 100%;
     padding: 10px 0 5px 0;

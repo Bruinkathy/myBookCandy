@@ -1,0 +1,13 @@
+﻿@if (TempData["success"] != null)
+{
+	<div class="success-message fadeOut bg-green-edit">
+		<h6 class="text-center text-white fst-italic">@TempData["success"]</h6>
+	</div>
+}
+
+@if (TempData["error"] != null)
+{
+	<div class="error-message fadeOut bg-red-delete">
+		<h6 class="text-center text-white fst-italic">@TempData["error"]</h6>
+	</div>
+}
