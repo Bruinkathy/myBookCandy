@@ -16,6 +16,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\myBookCandy.DataAccess\myBookCandy.DataAccess.csproj" />
+    <ProjectReference Include="..\myBookCandy.Models\myBookCandy.Models.csproj" />
+    <ProjectReference Include="..\myBookCandy.Utility\myBookCandy.Utility.csproj" />
   </ItemGroup>
 
 </Project>

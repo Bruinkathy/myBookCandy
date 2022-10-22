@@ -1,4 +1,4 @@
-namespace myBookCandyWeb.Models
+namespace myBookCandy.Models
 {
     public class ErrorViewModel
     {
