@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\myBookCandy.Models\myBookCandy.Models.csproj" />
+  </ItemGroup>
+
 </Project>

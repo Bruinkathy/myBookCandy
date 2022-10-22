@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using myBookCandy.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,7 @@ namespace myBookCandy.DataAccess.Data
         {
 
         }
+
+        public DbSet<Category> Categories { get; set; }
     }
 }
