@@ -1,18 +1,157 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+* {
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.bi-book-half {
+    font-size: 30px;
+    margin-left: 15px;
+}
+
+footer {
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 20px;
+}
+
+.bg-green-edit {
+    background: #22bb33;
+}
+
+.text-green-edit {
+    color: #22bb33;
+}
+
+.bg-red-delete {
+    background: #d9534f;
+}
+
+.success-message,
+.error-message {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    padding: 10px 0 5px 0;
+    opacity: 1;
+    -webkit-animation-duration: 5s;
+    animation-duration: 5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+
+.success-message {
+    color: #22bb33;
+}
+
+.error-message {
+    background: #d9534f;
+}
+
+
+.text-red-delete {
+    color: #d9534f;
+}
+
+.btn-square {
+    padding: 1px 5px;
+    border-radius: 5px;
+}
+
+.i20 {
+    font-size: 20px;
+}
+
+.i24 {
+    font-size: 24px;
+}
+
+.font-12 {
+    font-size: 12px;
+}
+
+.width150 {
+    width: 150px;
+}
+
+.bg-lt {
+    background-color: rgba(128, 128, 128, .25)
+}
+
+.card {
+    padding: 15px;
+}
+
+
+
+img {
+    min-width: 200px;
+    width: 80%;
+    height: auto;
+    margin: 0 auto !important;
+    padding: 2px !important;
+    border: 2px #ccc double;
+    border-radius: 10px;
+    box-shadow: rgba(128, 128, 128, .3) 1px 2px;
+    margin-top: 50px;
+    float: right;
+}
+
+.card {
+    margin: 0;
+    padding: 0;
+}
+
+    .card img {
+    }
+
+
+
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
 }
