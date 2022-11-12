@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Product>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Product List:</h2>
+        </div>
+        <div class="col-6">
+            <a asp-controller="Product" asp-action="Upsert" class="btn btn-primary float-end"><i class="bi bi-plus-circle-fill" style="font-size: 20px;"></i>&nbsp; Create New</a>
+        </div>
+    </div>
+    <br />
+    <table id="tblData" class="table table-bordered table-striped text-center" style="width:100%">
+        <thead class="bg-primary text-white">
+            <tr>
+                <th width="20%">Title</th>
+                <th width="25%">Description</th>
+                <th width="20%">Author</th>
+                <th width="15%">Category</th>
+                <th width="10%">Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>
+                        @obj.Title
+                    </td>
+                    <td>
+                        @obj.Description
+                    </td>
+                    <td>
+                        @obj.Author
+                    </td>
+                    <td>
+                        @obj.Category.Name
+                    </td>
+                    <td>
+                        $@obj.Price
+                    </td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Product" asp-action="Upsert" asp-route-id="@obj.Id" title="Edit"><i class="bi bi-pencil-square i24 text-white bg-green-edit btn-square mx-1"></i></a>
+                            <a asp-controller="Product" asp-action="Delete" asp-route-id="@obj.Id" title="Delete"><i class="bi bi-x-square i24 text-white bg-red-delete btn-square mx-1"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

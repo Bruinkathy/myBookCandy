@@ -1,0 +1,129 @@
+﻿@model myBookCandy.Models.ViewModels.ProductVM
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    <input asp-for="Product.Id" hidden />
+    <input asp-for="Product.ImageUrl" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-@(Model.Product.Id!=0?"success":"primary")">@(Model.Product.Id != 0 ? "Update " : "Create ")Product:</h2>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="All" class="text-danger"></div>*@
+        <div class="row mb-4">
+            <div class="col-md-12 col-lg-8 row">
+                <div class="col-12 mb-3">
+                    <label asp-for="Product.Title"></label>
+                    <input asp-for="Product.Title" class="form-control" />
+                    <span asp-validation-for="Product.Title" class="text-danger"></span>
+                </div>
+                <div class="col-12 mb-3">
+                    <label asp-for="Product.Author"></label>
+                    <input asp-for="Product.Author" class="form-control" />
+                    <span asp-validation-for="Product.Author" class="text-danger"></span>
+                </div>
+                <div class="col-6 mb-3">
+                    <label asp-for="Product.CategoryId"></label>
+                    <select asp-for="Product.CategoryId" asp-items="@Model.CategoryList" class="form-select">
+                        <option disabled selected>--Select Category--</option>
+                    </select>
+                </div>
+
+                <div class="col-6 mb-3">
+                    <label asp-for="Product.CoverTypeId"></label>
+                    <select asp-for="Product.CoverTypeId" asp-items="@Model.CoverTypeList" class="form-select">
+                        <option disabled selected>--Select Cover Type--</option>
+                    </select>
+                </div>
+                <div class="col-8 mb-3">
+                    <label asp-for="Product.ISBN"></label>
+                    <input asp-for="Product.ISBN" class="form-control" />
+                    <span asp-validation-for="Product.ISBN" class="text-danger"></span>
+                </div>
+                <div class="col-12 mb-3">
+                    <label asp-for="Product.Description"></label>
+                    <textarea asp-for="Product.Description" rows="3" class="form-control"></textarea>
+                    <span asp-validation-for="Product.Description" class="text-danger"></span>
+                </div>
+                <div class="col-6 mb-3">
+                    <label asp-for="Product.Price"></label>
+                    <input asp-for="Product.Price" class="form-control" />
+                    <span asp-validation-for="Product.Price" class="text-danger"></span>
+                </div>
+                <div class="col-6 mb-3">
+                    <label asp-for="Product.ListPrice"></label>
+                    <input asp-for="Product.ListPrice" class="form-control" />
+                    <span asp-validation-for="Product.ListPrice" class="text-danger"></span>
+                </div>
+                <div class="col-6 mb-3">
+                    <label asp-for="Product.Price50"></label>
+                    <input asp-for="Product.Price50" class="form-control" />
+                    <span asp-validation-for="Product.Price50" class="text-danger"></span>
+                </div>
+                <div class="col-6 mb-3">
+                    <label asp-for="Product.Price100"></label>
+                    <input asp-for="Product.Price100" class="form-control" />
+                    <span asp-validation-for="Product.Price100" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4  mb-3">
+
+                <div class="btn-primary button_outer" title="Add Image">
+                    <div class="btn_upload">
+                        <input type="file" id="uploadBox" name="file" class="form-control" onchange="previewFile(event)" />
+                        <i class="bi bi-plus-circle i20 text-white"></i>&nbsp;New Image
+                    </div>
+                </div>
+
+                <div id="img-preview" style="width: 80%; height: auto; margin: 0 auto; margin-top: 25px;">
+                    @if (Model.Product.Id != 0)
+                    {
+                        <img src="@Model.Product.ImageUrl" id="preview" class="image-preview-image" style="width: 100%; height: auto;" />
+                    }
+                    else
+                    {
+                        <img src="~/images/NoImage.jpeg" alt="Image Preview" id="preview" style="width: 100%; height: auto;" />   
+                    } 
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            @if (Model.Product.Id != 0)
+            {
+                <a class="btn btn-secondary width150" asp-area="Admin" asp-controller="Product" asp-action="Index" title="Back"><i class="bi bi-arrow-left-circle i20">&nbsp;</i>Back</a>
+                <button type="submit" class="btn btn-success width150 text-white" title="Edit"><i class="bi-pencil-square i20 text-white"></i>&nbsp;Update</button>
+            }
+            else
+            {
+                <a class="btn btn-secondary width150" asp-area="Admin" asp-controller="Product" asp-action="Index" title="Back"><i class="bi bi-arrow-left-circle i20">&nbsp;</i>Back</a>
+                <button type="submit" onclick="return ValidateInput()" class="btn btn-primary width150 text-white" title="Create"><i class="bi bi-plus-circle i20 text-white"></i>&nbsp;Create</button>
+            }
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+
+    <script>
+        var previewFile = function (event) {
+            var preview = document.getElementById('preview');
+            preview.src = URL.createObjectURL(event.target.files[0]);
+            preview.onload = function () {
+                URL.revokeObjectURL(preview.src)
+            }
+        };
+    </script>
+
+    @*<script src="https://cdn.tiny.cloud/1/po97t4t6mgv7u02svjaazitiq1dmcfk7frejj9uee29d2j2f/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
+            toolbar_mode: 'floating',
+        });
+    </script>*@
+
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+
+    }
